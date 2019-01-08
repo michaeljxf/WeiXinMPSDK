@@ -54,7 +54,7 @@ namespace Senparc.Weixin.Open.WxaAPIs.NickName
                 naming_other_stuff_4 = naming_other_stuff_4,
                 naming_other_stuff_5 = naming_other_stuff_5
             };
-            return CommonJsonSend.Send<SetNickNameJsonResult>(accessToken, url, data);
+            return CommonJsonSend.Send<SetNickNameJsonResult>(null, url, data);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Senparc.Weixin.Open.WxaAPIs.NickName
             {
                 audit_id = audit_id
             };
-            return CommonJsonSend.Send<QueryNickNameJsonResult>(accessToken, url, data);
+            return CommonJsonSend.Send<QueryNickNameJsonResult>(null, url, data);
         }
 
         /// <summary>
@@ -88,13 +88,13 @@ namespace Senparc.Weixin.Open.WxaAPIs.NickName
             {
                 nick_name = nick_name
             };
-            return CommonJsonSend.Send<CheckWxVerifyNickNameJsonResult>(accessToken, url, data);
+            return CommonJsonSend.Send<CheckWxVerifyNickNameJsonResult>(null, url, data);
         }
 
         #endregion
 
-#if !NET35 && !NET40
 
+#if !NET35 && !NET40
         #region 异步方法
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Senparc.Weixin.Open.WxaAPIs.NickName
                 naming_other_stuff_4 = naming_other_stuff_4,
                 naming_other_stuff_5 = naming_other_stuff_5
             };
-            return await CommonJsonSend.SendAsync<SetNickNameJsonResult>(accessToken, url, data);
+            return await CommonJsonSend.SendAsync<SetNickNameJsonResult>(null, url, data);
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Senparc.Weixin.Open.WxaAPIs.NickName
             {
                 audit_id = audit_id
             };
-            return await CommonJsonSend.SendAsync<QueryNickNameJsonResult>(accessToken, url, data);
+            return await CommonJsonSend.SendAsync<QueryNickNameJsonResult>(null, url, data);
         }
 
         /// <summary>
@@ -168,11 +168,10 @@ namespace Senparc.Weixin.Open.WxaAPIs.NickName
             {
                 nick_name = nick_name
             };
-            return await CommonJsonSend.SendAsync<CheckWxVerifyNickNameJsonResult>(accessToken, url, data);
+            return await CommonJsonSend.SendAsync<CheckWxVerifyNickNameJsonResult>(null, url, data);
         }
 
         #endregion
-
 #endif
     }
 }

@@ -60,6 +60,9 @@ Detail: https://github.com/JeffreySu/WeiXinMPSDK/blob/master/license.md
     修改标识：Senparc - 20170810
     修改描述：v4.14.1 ReturnCode添加：没有留言权限 = 88000
    
+    修改标识：Senparc - 20170901
+    修改描述：删除 AppStoreState 枚举，移植到 Senparc.NeuChar
+
 ----------------------------------------------------------------*/
 
 
@@ -250,6 +253,26 @@ namespace Senparc.Weixin
         //开放平台
 
         该公众号_小程序已经绑定了开放平台帐号 = 89000,//account has bound open，该公众号/小程序已经绑定了开放平台帐号
+        该主体已有任务执行中_距上次任务24h后再试 = 89249,//  task running
+        内部错误= 89247,//    inner error
+        无效微信号 = 86004,//   invalid wechat
+        法人姓名与微信号不一致= 61070,// name, wechat name not in accordance
+        企业代码类型无效_请选择正确类型填写= 89248,//  invalid code type
+        未找到该任务= 89250,//  task not found
+        待法人人脸核身校验= 89251,//   legal person checking
+        法人_企业信息一致性校验中= 89252,//   front checking
+        缺少参数= 89253,//    lack of some params
+        第三方权限集不全_补全权限集全网发布后生效= 89254,//   lack of some component rights
+        已下发的模板消息法人并未确认且已超时_24h_未进行身份证校验= 100001,
+        已下发的模板消息法人并未确认且已超时_24h_未进行人脸识别校验 = 100002,
+        已下发的模板消息法人并未确认且已超时_24h= 100003,
+        工商数据返回_企业已注销=101,
+        工商数据返回_企业不存在或企业信息未更新=102,
+        工商数据返回_企业法定代表人姓名不一致= 103,
+        工商数据返回_企业法定代表人身份证号码不一致=104,
+        法定代表人身份证号码_工商数据未更新_请5_15个工作日之后尝试= 105,
+        工商数据返回_企业信息或法定代表人信息不一致=1000,
+
 
         //小程序代码管理返回码
         不是由第三方代小程序进行调用 = 86000,
@@ -272,6 +295,8 @@ namespace Senparc.Weixin
         /// 小程序为“签名错误”。对应公众号： 87009, “errmsg” : “reply is not exists” //该回复不存在
         /// </summary>
         签名错误 = 87009,
+        //小程序MsgSecCheck接口
+        内容含有违法违规内容 = 87014,
 
         //小程序地点管理返回码
         POST参数非法 = 20002,
@@ -861,24 +886,6 @@ namespace Senparc.Weixin
         en
     }
 
-    /// <summary>
-    /// AppStore状态
-    /// </summary>
-    public enum AppStoreState
-    {
-        /// <summary>
-        /// 无状态
-        /// </summary>
-        None = 1,
-        /// <summary>
-        /// 已进入应用状态
-        /// </summary>
-        Enter = 2,
-        /// <summary>
-        /// 退出App状态（临时传输状态，退出后即为None）
-        /// </summary>
-        Exit = 4
-    }
 
     /// <summary>
     /// 用户信息中的性别（sex）
